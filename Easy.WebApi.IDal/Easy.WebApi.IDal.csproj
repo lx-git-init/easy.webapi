@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Easy.WebApi.Models\Easy.WebApi.Models.csproj" />
+  </ItemGroup>
+
 </Project>

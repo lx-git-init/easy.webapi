@@ -19,6 +19,8 @@ namespace Easy.WebApi.Services
         {
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddPrivateConfig();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
