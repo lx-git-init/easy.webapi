@@ -1,5 +1,6 @@
 ﻿using Easy.WebApi.IBll;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using System.Threading.Tasks;
 
 namespace Easy.WebApi.Services.Controllers
@@ -9,10 +10,12 @@ namespace Easy.WebApi.Services.Controllers
     public class CodeSetController : ControllerBase
     {
         private readonly ICodeSetBll _codeSetBll;
+        private readonly IStringLocalizer<CodeSetController> _localizer;
 
-        public CodeSetController(ICodeSetBll codeSetBll)
+        public CodeSetController(ICodeSetBll codeSetBll, IStringLocalizer<CodeSetController> localizer)
         {
             _codeSetBll = codeSetBll;
+            _localizer = localizer;
         }
 
         /// <summary>
@@ -27,6 +30,16 @@ namespace Easy.WebApi.Services.Controllers
             if (result == null)
                 return NotFound();
             return Ok(result);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("hello")]
+        public string Hello()
+        {
+            return _localizer["About Title"];
         }
     }
 }

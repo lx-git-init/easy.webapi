@@ -21,6 +21,8 @@ namespace Easy.WebApi.Services
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddPrivateConfig();
+
+            services.AddLocalization();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
