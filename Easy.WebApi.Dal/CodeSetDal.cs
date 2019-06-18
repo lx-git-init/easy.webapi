@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Easy.WebApi.Dal
@@ -23,8 +24,12 @@ namespace Easy.WebApi.Dal
         {
             using (IDbConnection conn = new SqlConnection(_connStr))
             {
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 string sql = @"select * from codeset where id=@id";
-                var query = await conn.QueryFirstOrDefaultAsync<EntityCodeSet>(sql, new {id = id});
+                var query = await conn.QueryFirstOrDefaultAsync<EntityCodeSet>(sql, new { id = id });
+                sw.Stop();
+                Console.WriteLine(">>>>dapper:" + sw.ElapsedMilliseconds + "<<<<");
                 return query;
             }
         }

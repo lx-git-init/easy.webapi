@@ -12,7 +12,8 @@ namespace Easy.WebApi.Services.Controllers
         private readonly ICodeSetBll _codeSetBll;
         private readonly IStringLocalizer<CodeSetController> _localizer;
 
-        public CodeSetController(ICodeSetBll codeSetBll, IStringLocalizer<CodeSetController> localizer)
+        public CodeSetController(ICodeSetBll codeSetBll,
+            IStringLocalizer<CodeSetController> localizer)
         {
             _codeSetBll = codeSetBll;
             _localizer = localizer;
