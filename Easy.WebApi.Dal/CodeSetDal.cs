@@ -29,14 +29,14 @@ namespace Easy.WebApi.Dal
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<EntityCodeSet> GetCodeSetById(int id)
+        public async Task<CodeSet> GetCodeSetById(int id)
         {
             using (IDbConnection conn = new SqlConnection(_connStr))
             {
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 string sql = @"select * from codeset where id=@id";
-                var query = await conn.QueryFirstOrDefaultAsync<EntityCodeSet>(sql, new { id = id });
+                var query = await conn.QueryFirstOrDefaultAsync<CodeSet>(sql, new { id = id });
                 sw.Stop();
                 Console.WriteLine(">>>>dapper:" + sw.ElapsedMilliseconds + "<<<<");
                 return query;
@@ -44,22 +44,23 @@ namespace Easy.WebApi.Dal
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="notes"></param>
         /// <returns></returns>
-        public async Task<List<EntityCodeSet>> GetCodeSets(string[] notes)
+        public async Task<List<CodeSet>> GetCodeSets(string[] notes)
         {
-            var codeSets = await _dbContext.EntityCodeSets.Where(q => notes.Contains(q.Note)).ToListAsync();
+            var codeSets = await _dbContext.CodeSets.Where(q => notes.Contains(q.Note)).ToListAsync();
+            // var codeSets = await _dbContext.CodeSets.FromSql("select * from codeset where note='cs'").ToListAsync();
             return codeSets;
         }
 
-        public Task<bool> InsertCodeSet(EntityCodeSet codeSet)
+        public Task<bool> InsertCodeSet(CodeSet codeSet)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateCodeSet(EntityCodeSet codeSet)
+        public Task<bool> UpdateCodeSet(CodeSet codeSet)
         {
             throw new NotImplementedException();
         }

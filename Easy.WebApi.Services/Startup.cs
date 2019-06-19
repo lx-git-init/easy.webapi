@@ -12,26 +12,28 @@ namespace Easy.WebApi.Services
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IConfiguration _cfg;
+        private readonly IHostingEnvironment _env;
+
+        public Startup(IConfiguration cfg, IHostingEnvironment env)
         {
-            Configuration = configuration;
+            _cfg = cfg;
+            _env = env;
         }
 
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services, IHostingEnvironment env)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(opts =>
                 {
                     opts.ModelMetadataDetailsProviders.Add(new RequiredBindingMetadataProvider());
-                    opts.Filters.Add(new ActionResultFilter(env));
-                    opts.Filters.Add(new ApiExceptionFilter(env));
+                    opts.Filters.Add(new ActionResultFilter(_env));
+                    opts.Filters.Add(new ApiExceptionFilter(_env));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<MyDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:default"]));
+            services.AddDbContext<MyDbContext>(opts => opts.UseSqlServer(_cfg["ConnectionStrings:default"]));
 
-            services.AddMiniProfiler();
+            services.AddMiniProfiler().AddEntityFramework();
 
             services.AddPrivateConfig();
 

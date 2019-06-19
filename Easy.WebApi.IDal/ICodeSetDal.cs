@@ -6,13 +6,13 @@ namespace Easy.WebApi.IDal
 {
     public interface ICodeSetDal : IDependency
     {
-        Task<EntityCodeSet> GetCodeSetById(int id);
+        Task<CodeSet> GetCodeSetById(int id);
 
-        Task<List<EntityCodeSet>> GetCodeSets(string[] notes);
+        Task<List<CodeSet>> GetCodeSets(string[] notes);
 
-        Task<bool> InsertCodeSet(EntityCodeSet codeSet);
+        Task<bool> InsertCodeSet(CodeSet codeSet);
 
-        Task<bool> UpdateCodeSet(EntityCodeSet codeSet);
+        Task<bool> UpdateCodeSet(CodeSet codeSet);
 
         Task<bool> DeleteCodeSet(int id);
     }

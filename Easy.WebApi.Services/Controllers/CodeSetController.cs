@@ -34,6 +34,20 @@ namespace Easy.WebApi.Services.Controllers
         }
 
         /// <summary>
+        /// 测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("code-set")]
+        public async Task<IActionResult> GetCodeSets()
+        {
+            string[] notes = { "cs" };
+            var result = await _codeSetBll.GetCodeSets(notes);
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+
+        /// <summary>
         ///
         /// </summary>
         /// <returns></returns>

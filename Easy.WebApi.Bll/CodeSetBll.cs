@@ -16,22 +16,22 @@ namespace Easy.WebApi.Bll
             _codeSetDal = codeSetDal;
         }
 
-        public async Task<EntityCodeSet> GetCodeSetById(int id)
+        public async Task<CodeSet> GetCodeSetById(int id)
         {
             return await _codeSetDal.GetCodeSetById(id);
         }
 
-        public async Task<List<EntityCodeSet>> GetCodeSets(string[] notes)
+        public async Task<List<CodeSet>> GetCodeSets(string[] notes)
+        {
+            return await _codeSetDal.GetCodeSets(notes);
+        }
+
+        public async Task<bool> InsertCodeSet(CodeSet codeSet)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> InsertCodeSet(EntityCodeSet codeSet)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> UpdateCodeSet(EntityCodeSet codeSet)
+        public async Task<bool> UpdateCodeSet(CodeSet codeSet)
         {
             throw new NotImplementedException();
         }
