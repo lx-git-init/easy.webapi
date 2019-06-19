@@ -13,6 +13,6 @@ namespace Easy.WebApi.Models
         {
         }
 
-        public virtual DbSet<CodeSet> CodeSets { get; set; }
+        public virtual DbSet<EntityDemo> EntityDemos { get; set; }
     }
 }

@@ -23,7 +23,8 @@ namespace Easy.WebApi.Services
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(opts =>
+            services
+                .AddMvc(opts =>
                 {
                     opts.ModelMetadataDetailsProviders.Add(new RequiredBindingMetadataProvider());
                     opts.Filters.Add(new ActionResultFilter(_env));
