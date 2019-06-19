@@ -1,25 +1,34 @@
 ﻿using Dapper;
 using Easy.WebApi.IDal;
 using Easy.WebApi.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Easy.WebApi.Dal
 {
     public class CodeSetDal : ICodeSetDal
     {
+        private readonly MyDbContext _dbContext;
         private readonly string _connStr;
 
-        public CodeSetDal(IConfiguration configuration)
+        public CodeSetDal(IConfiguration configuration, MyDbContext dbContext)
         {
+            _dbContext = dbContext;
             _connStr = configuration["ConnectionStrings:default"];
         }
 
+        /// <summary>
+        /// 获取元素
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<EntityCodeSet> GetCodeSetById(int id)
         {
             using (IDbConnection conn = new SqlConnection(_connStr))
@@ -34,9 +43,15 @@ namespace Easy.WebApi.Dal
             }
         }
 
-        public Task<List<EntityCodeSet>> GetCodeSets(string[] notes)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="notes"></param>
+        /// <returns></returns>
+        public async Task<List<EntityCodeSet>> GetCodeSets(string[] notes)
         {
-            throw new NotImplementedException();
+            var codeSets = await _dbContext.EntityCodeSets.Where(q => notes.Contains(q.Note)).ToListAsync();
+            return codeSets;
         }
 
         public Task<bool> InsertCodeSet(EntityCodeSet codeSet)
