@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using StackExchange.Profiling;
 
 namespace Easy.WebApi.Dal
 {
@@ -50,8 +51,11 @@ namespace Easy.WebApi.Dal
         /// <returns></returns>
         public async Task<List<CodeSet>> GetCodeSets(string[] notes)
         {
+            //var codeSets = await MiniProfiler.Current.Inline(
+            //    async () => await _dbContext.CodeSets.Where(q => notes.Contains(q.Note)).ToListAsync(),
+            //    "GetCodeSets");
+
             var codeSets = await _dbContext.CodeSets.Where(q => notes.Contains(q.Note)).ToListAsync();
-            // var codeSets = await _dbContext.CodeSets.FromSql("select * from codeset where note='cs'").ToListAsync();
             return codeSets;
         }
 

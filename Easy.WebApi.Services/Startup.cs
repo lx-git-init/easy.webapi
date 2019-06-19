@@ -33,7 +33,9 @@ namespace Easy.WebApi.Services
 
             services.AddDbContext<MyDbContext>(opts => opts.UseSqlServer(_cfg["ConnectionStrings:default"]));
 
-            services.AddMiniProfiler().AddEntityFramework();
+            services
+                .AddMiniProfiler(opts => opts.RouteBasePath = "/profiler")
+                .AddEntityFramework();
 
             services.AddPrivateConfig();
 
@@ -51,8 +53,9 @@ namespace Easy.WebApi.Services
                 app.UseHsts();
             }
 
-            app.UseMiniProfiler();
             app.UseHttpsRedirection();
+
+            app.UseMiniProfiler();
             app.UseMvc();
         }
     }

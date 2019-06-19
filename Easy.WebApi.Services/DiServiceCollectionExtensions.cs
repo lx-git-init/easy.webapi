@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Easy.WebApi.Models;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using Easy.WebApi.Models;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy.WebApi.Services
 {
