@@ -3,21 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Bll", "Easy.WebApi.Bll\Easy.WebApi.Bll.csproj", "{5D470B41-22B6-4518-88F1-A7708E874907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Bll", "Easy.WebApi.Bll\Easy.WebApi.Bll.csproj", "{5D470B41-22B6-4518-88F1-A7708E874907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Common", "Easy.WebApi.Common\Easy.WebApi.Common.csproj", "{697471F9-CDDD-4CE3-949B-84423801A106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Common", "Easy.WebApi.Common\Easy.WebApi.Common.csproj", "{697471F9-CDDD-4CE3-949B-84423801A106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Dal", "Easy.WebApi.Dal\Easy.WebApi.Dal.csproj", "{C7747E5B-99DA-4FD5-92DB-BB0DB1D38D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Dal", "Easy.WebApi.Dal\Easy.WebApi.Dal.csproj", "{C7747E5B-99DA-4FD5-92DB-BB0DB1D38D8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.IBll", "Easy.WebApi.IBll\Easy.WebApi.IBll.csproj", "{65006378-9CBA-4D4D-A9A6-23DA815A1343}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.IBll", "Easy.WebApi.IBll\Easy.WebApi.IBll.csproj", "{65006378-9CBA-4D4D-A9A6-23DA815A1343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.IDal", "Easy.WebApi.IDal\Easy.WebApi.IDal.csproj", "{75851CF1-8654-4874-A19E-93338FFA6514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.IDal", "Easy.WebApi.IDal\Easy.WebApi.IDal.csproj", "{75851CF1-8654-4874-A19E-93338FFA6514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Models", "Easy.WebApi.Models\Easy.WebApi.Models.csproj", "{17B16D72-1295-469A-B184-BD8CC3DA8A73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Models", "Easy.WebApi.Models\Easy.WebApi.Models.csproj", "{17B16D72-1295-469A-B184-BD8CC3DA8A73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Services", "Easy.WebApi.Services\Easy.WebApi.Services.csproj", "{C9044EE7-C3FA-47A5-BAD7-1EF2837A04B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Services", "Easy.WebApi.Services\Easy.WebApi.Services.csproj", "{C9044EE7-C3FA-47A5-BAD7-1EF2837A04B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.WebApi.Test", "Easy.WebApi.Test\Easy.WebApi.Test.csproj", "{9402E480-6C7B-45D1-88CC-DC70AD691FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy.WebApi.Test", "Easy.WebApi.Test\Easy.WebApi.Test.csproj", "{9402E480-6C7B-45D1-88CC-DC70AD691FEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.BLL", "2.BLL", "{E57973EA-9C2D-4A0E-A2E4-75B6386F7FD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Core", "1.Core", "{28BE02A9-9120-49C9-AC58-3D7387AC1CEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DAL", "3.DAL", "{1885A296-ED28-4524-95AF-9786D9ADDCFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FF.测试", "FF.测试", "{AA71248F-29D7-4FFA-B9D3-941484F1D288}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5D470B41-22B6-4518-88F1-A7708E874907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -128,5 +133,20 @@ Global
 		{9402E480-6C7B-45D1-88CC-DC70AD691FEF}.Release|x64.Build.0 = Release|Any CPU
 		{9402E480-6C7B-45D1-88CC-DC70AD691FEF}.Release|x86.ActiveCfg = Release|Any CPU
 		{9402E480-6C7B-45D1-88CC-DC70AD691FEF}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D470B41-22B6-4518-88F1-A7708E874907} = {E57973EA-9C2D-4A0E-A2E4-75B6386F7FD0}
+		{697471F9-CDDD-4CE3-949B-84423801A106} = {28BE02A9-9120-49C9-AC58-3D7387AC1CEF}
+		{C7747E5B-99DA-4FD5-92DB-BB0DB1D38D8F} = {1885A296-ED28-4524-95AF-9786D9ADDCFC}
+		{65006378-9CBA-4D4D-A9A6-23DA815A1343} = {E57973EA-9C2D-4A0E-A2E4-75B6386F7FD0}
+		{75851CF1-8654-4874-A19E-93338FFA6514} = {1885A296-ED28-4524-95AF-9786D9ADDCFC}
+		{17B16D72-1295-469A-B184-BD8CC3DA8A73} = {1885A296-ED28-4524-95AF-9786D9ADDCFC}
+		{9402E480-6C7B-45D1-88CC-DC70AD691FEF} = {AA71248F-29D7-4FFA-B9D3-941484F1D288}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94B08A9A-B2F8-4536-B5D2-C175DB85BBCD}
 	EndGlobalSection
 EndGlobal
