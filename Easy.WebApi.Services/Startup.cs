@@ -12,12 +12,13 @@ namespace Easy.WebApi.Services
 {
     public class Startup
     {
-        private readonly IConfiguration _cfg;
+        private readonly IConfiguration _configuration;
+
         private readonly IHostingEnvironment _env;
 
-        public Startup(IConfiguration cfg, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            _cfg = cfg;
+            _configuration = configuration;
             _env = env;
         }
 
@@ -32,8 +33,9 @@ namespace Easy.WebApi.Services
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<MyDbContext>(opts => opts.UseSqlServer(_cfg["ConnectionStrings:default"]));
+            services.AddDbContext<MyDbContext>(opts => opts.UseSqlServer(_configuration["ConnectionStrings:default"]));
 
+            // 使用MiniProfiler插件分析EF
             services
                 .AddMiniProfiler(opts => opts.RouteBasePath = "/profiler")
                 .AddEntityFramework();
